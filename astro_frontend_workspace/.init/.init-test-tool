@@ -1,0 +1,4 @@
+{
+    "command": "npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend"
+}
