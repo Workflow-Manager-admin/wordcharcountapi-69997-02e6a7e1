@@ -2,18 +2,18 @@
 > astro@0.0.1 dev
 > astro dev --host 0.0.0.0 --port 3000
 
-13:51:52 [types] Generated 1ms
-13:51:52 [content] Syncing content
-13:51:52 [content] Synced content
-13:51:52 [vite] Re-optimizing dependencies because vite config has changed
+13:52:26 [types] Generated 1ms
+13:52:26 [content] Syncing content
+13:52:26 [content] Synced content
+13:52:26 [vite] Re-optimizing dependencies because vite config has changed
 
- astro  v5.4.2 ready in 184 ms
+ astro  v5.4.2 ready in 182 ms
 
 ┃ Local    http://localhost:3000/
 ┃ Network  http://172.17.0.2:3000/
 
-13:51:52 watching for file changes...
-13:51:52 [ERROR] [vite] Error:   Failed to scan for dependencies from entries:
+13:52:26 watching for file changes...
+13:52:26 [ERROR] [vite] Error:   Failed to scan for dependencies from entries:
   /home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/src/pages/index.astro
 
   [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected ";" but found "and"[0m
@@ -34,8 +34,18 @@
     at handleRequest (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:626:17)
     at handleIncomingPacket (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:651:7)
     at Socket.readFromStdout (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:579:7)
-13:51:53 [200] / 16ms
-13:51:53 [200] / 6ms
-13:52:14 [watch] /src/pages/index.astro?astro&type=style&index=0&lang.css
-13:52:14 [200] / 6ms
-13:52:15 [200] / 6ms
+13:52:28 [200] / 14ms
+13:52:28 [200] / 4ms
+13:52:47 [404] POST /api/count 3ms
+13:52:56 [404] POST /api/count 2ms
+13:53:03 [200] / 10ms
+13:53:03 [200] / 7ms
+13:53:04 [200] / 3ms
+13:53:08 [404] POST /api/count 2ms
+13:53:42 [200] / 4ms
+13:53:42 [200] / 3ms
+13:53:42 [200] / 4ms
+13:53:47 [404] POST /api/count 1ms
+13:54:14 [404] POST /api/count 2ms
+13:54:53 [404] /preview 1ms
+13:55:00 [200] / 4ms
