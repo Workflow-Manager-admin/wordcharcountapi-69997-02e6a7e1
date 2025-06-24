@@ -1,16 +1,195 @@
 ---
+import { useState } from 'react';
 
+// Astro supports client-side interactivity using "client:*" directives with framework components (React, Preact, etc.).
+// For a minimal approach, we'll use a client-side script inside a <script> tag and manage DOM ourselves.
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Word & Character Counter</title>
+    <style>
+      /* Minimal clean UI, centered single column */
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background: #f8fafc;
+        font-family: system-ui, sans-serif;
+        color: #222;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      h1 {
+        color: #1a73e8;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        letter-spacing: 0.03em;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 420px;
+        gap: 1rem;
+        background: #fff;
+        border-radius: 8px;
+        padding: 2rem 1.5rem 1.25rem 1.5rem;
+        box-shadow: 0 4px 18px #0001;
+      }
+      textarea {
+        font-size: 1.1rem;
+        padding: 0.85rem;
+        min-height: 110px;
+        resize: vertical;
+        border-radius: 6px;
+        border: 1px solid #cfd8dc;
+        background: #f9fbfd;
+        transition: border 0.18s;
+      }
+      textarea:focus {
+        outline: none;
+        border-color: #1a73e8;
+        background: #fff;
+      }
+      button[type="submit"] {
+        padding: 0.8rem;
+        background: #1a73e8;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        transition: background 0.18s;
+        cursor: pointer;
+        font-size: 1.06rem;
+        letter-spacing: 0.01em;
+      }
+      button[type="submit"]:hover:not([disabled]) {
+        background: #1565c0;
+      }
+      button[disabled] {
+        opacity: 0.65;
+        cursor: not-allowed;
+      }
+      .results, .error, .loading {
+        margin-top: 0.5rem;
+        text-align: center;
+        font-size: 1.09rem;
+      }
+      .results {
+        color: #034c18;
+        font-weight: 500;
+      }
+      .error {
+        color: #b00020;
+        margin-bottom: 0;
+      }
+      .loading {
+        color: #444;
+        font-style: italic;
+      }
+      @media (max-width: 520px) {
+        form {
+          padding: 1.1rem 0.2rem 1rem 0.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Word & Character Counter</h1>
+      <form id="counter-form" autocomplete="off">
+        <textarea
+          id="input-text"
+          name="inputText"
+          placeholder="Paste or write your text here..."
+          maxlength="5000"
+          required
+        ></textarea>
+        <button id="count-btn" type="submit">Count</button>
+        <div id="status-area"></div>
+      </form>
+    </div>
+    <script type="text/javascript">
+      // Page logic for handling form submit and communication with backend
+      const form = document.getElementById('counter-form');
+      const textarea = document.getElementById('input-text');
+      const statusArea = document.getElementById('status-area');
+      const countBtn = document.getElementById('count-btn');
+
+      function showLoading() {
+        statusArea.innerHTML = '<span class="loading">Counting...</span>';
+      }
+      function showError(msg) {
+        statusArea.innerHTML = '<span class="error">' + msg + '</span>';
+      }
+      function showResults(wordCount, charCount) {
+        statusArea.innerHTML =
+          '<span class="results">Words: <b>' +
+          wordCount +
+          '</b> | Characters: <b>' +
+          charCount +
+          '</b></span>';
+      }
+      function clearStatus() {
+        statusArea.innerHTML = '';
+      }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        clearStatus();
+
+        const text = textarea.value.trim();
+        if (text.length === 0) {
+          showError('Please enter some text.');
+          return;
+        }
+
+        countBtn.disabled = true;
+        showLoading();
+
+        try {
+          const response = await fetch('/api/count', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: text })
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            const errMsg = errorData.detail || errorData.error || response.statusText;
+            showError('Server error: ' + errMsg);
+          } else {
+            const data = await response.json();
+            if (
+              typeof data.word_count === 'number' &&
+              typeof data.character_count === 'number'
+            ) {
+              showResults(data.word_count, data.character_count);
+            } else {
+              showError('Malformed server response.');
+            }
+          }
+        } catch (err) {
+          showError('Could not connect to server.');
+        } finally {
+          countBtn.disabled = false;
+        }
+      });
+
+      // Optional: clear results on text change
+      textarea.addEventListener('input', () => {
+        clearStatus();
+      });
+    </script>
+  </body>
 </html>
