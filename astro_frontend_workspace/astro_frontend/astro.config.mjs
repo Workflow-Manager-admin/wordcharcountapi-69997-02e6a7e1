@@ -10,5 +10,9 @@ export default defineConfig({
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
+        proxy: {
+            // Proxy /api requests to the Django backend running on port 3001 during local dev
+            '/api': 'http://localhost:3001',
+        }
     }
 })

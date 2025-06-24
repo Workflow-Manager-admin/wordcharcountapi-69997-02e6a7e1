@@ -53,6 +53,16 @@ import { useState } from 'react';
         statusArea.innerHTML = '';
       }
 
+      // Utility to get the backend API base URL
+      function getApiBaseUrl() {
+        // Allows full backend URL to be set in prod via window.env
+        if (window.env && window.env.BACKEND_URL) {
+          return window.env.BACKEND_URL;
+        }
+        // Default: use relative path (works w/ Astro proxy in dev & same-origin in prod)
+        return '';
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         clearStatus();
@@ -67,7 +77,8 @@ import { useState } from 'react';
         showLoading();
 
         try {
-          const response = await fetch('/api/count', {
+          const apiBase = getApiBaseUrl();
+          const response = await fetch(`${apiBase}/api/count`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
