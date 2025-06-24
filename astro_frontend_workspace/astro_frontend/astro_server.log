@@ -2,18 +2,18 @@
 > astro@0.0.1 dev
 > astro dev --host 0.0.0.0 --port 3000
 
-13:52:26 [types] Generated 1ms
-13:52:26 [content] Syncing content
-13:52:26 [content] Synced content
-13:52:26 [vite] Re-optimizing dependencies because vite config has changed
+13:56:31 [types] Generated 1ms
+13:56:31 [content] Syncing content
+13:56:31 [content] Synced content
+13:56:31 [vite] Re-optimizing dependencies because vite config has changed
 
- astro  v5.4.2 ready in 182 ms
+ astro  v5.4.2 ready in 195 ms
 
 ┃ Local    http://localhost:3000/
 ┃ Network  http://172.17.0.2:3000/
 
-13:52:26 watching for file changes...
-13:52:26 [ERROR] [vite] Error:   Failed to scan for dependencies from entries:
+13:56:31 watching for file changes...
+13:56:31 [ERROR] [vite] Error:   Failed to scan for dependencies from entries:
   /home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/src/pages/index.astro
 
   [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected ";" but found "and"[0m
@@ -34,56 +34,7 @@
     at handleRequest (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:626:17)
     at handleIncomingPacket (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:651:7)
     at Socket.readFromStdout (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:579:7)
-13:52:28 [200] / 14ms
-13:52:28 [200] / 4ms
-13:52:47 [404] POST /api/count 3ms
-13:52:56 [404] POST /api/count 2ms
-13:53:03 [200] / 10ms
-13:53:03 [200] / 7ms
-13:53:04 [200] / 3ms
-13:53:08 [404] POST /api/count 2ms
-13:53:42 [200] / 4ms
-13:53:42 [200] / 3ms
-13:53:42 [200] / 4ms
-13:53:47 [404] POST /api/count 1ms
-13:54:14 [404] POST /api/count 2ms
-13:54:53 [404] /preview 1ms
-13:55:00 [200] / 4ms
-13:55:05 [404] POST /api/count 1ms
-13:55:20 [200] / 7ms
-13:55:20 [200] / 6ms
-13:55:20 [200] / 7ms
-13:56:04 [200] / 4ms
-13:56:04 [200] / 3ms
-13:56:04 [200] / 4ms
-13:56:11 Configuration file updated. Restarting...
-13:56:11 [vite] Re-optimizing dependencies because vite config has changed
-13:56:11 [content] Syncing content
-13:56:11 [content] Synced content
-13:56:11 [types] Generated 88ms
-13:56:11 [vite] Re-optimizing dependencies because vite config has changed
-13:56:11 [ERROR] [vite] Error:   Failed to scan for dependencies from entries:
-  /home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/src/pages/index.astro
-
-  [31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mExpected ";" but found "and"[0m
-
-    script:/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/src/pages/index.astro?id=0:1:5:
-[37m      1 │  tag [32mand[37m manage DOM ourselves.
-        │      [32m~~~[37m
-        ╵      [32m;[0m
-
-
-    at failureErrorWithLog (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:1463:15)
-    at /home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:924:25
-    at runOnEndCallbacks (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:1303:45)
-    at buildResponseToResult (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:922:7)
-    at /home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:934:9
-    at new Promise (<anonymous>)
-    at requestCallbacks.on-end (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:933:54)
-    at handleRequest (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:626:17)
-    at handleIncomingPacket (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:651:7)
-    at Socket.readFromStdout (/home/kavia/workspace/code-generation/wordcharcountapi-69997-02e6a7e1/astro_frontend_workspace/astro_frontend/node_modules/esbuild/lib/main.js:579:7)
-13:56:13 [200] / 7ms
-13:56:14 [200] / 3ms
-13:56:19 [200] / 4ms
-13:56:19 [200] / 5ms
+13:57:02 [200] / 22ms
+13:57:02 [200] / 4ms
+13:57:09 [404] POST /api/count 4ms
+13:57:42 [404] POST /api/count 1ms
